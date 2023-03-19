@@ -1,0 +1,236 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+   <div class="container-fluid">
+      <div class="row align-items-center">
+         <div class="col-md-12 col-12">
+            <nav aria-label="breadcrumb" class="page-breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+               </ol>
+            </nav>
+            <h2 class="breadcrumb-title">Doctor Profile</h2>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+   <div class="container">
+      <!-- Doctor Widget -->
+      <div class="card">
+         <div class="card-body">
+            <div class="doctor-widget">
+               <div class="doc-info-left">
+                  <div class="doctor-img">
+                     <img src="{{ doctor.photo.url }}" class="img-fluid doctor-list-img" alt="User Image" />
+                  </div>
+                  <div class="doc-info-cont">
+                     <h4 class="doc-name">Dr. Darren Elder</h4>
+                     <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
+                     <p class="doc-department"><img src="https://user-images.githubusercontent.com/43414928/213187689-334a9c6b-c693-462f-96bb-f5671e1d09b2.png" class="img-fluid" alt="Speciality" />Dentistry</p>
+                     <div class="rating">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star"></i>
+                        <span class="d-inline-block average-rating">(35)</span>
+                     </div>
+
+                     <div class="clinic-services">
+                        <span>Dental Fillings</span>
+                        <span>Teeth Whitneing</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="doc-info-right">
+                  <div class="clini-infos">
+                     <ul>
+                        <li><i class="far fa-thumbs-up"></i> 99%</li>
+                        <li><i class="far fa-comment"></i> 35 Feedback</li>
+                        <li><i class="fas fa-map-marker-alt"></i> {{ doctor.location }}</li>
+                        <li><i class="far fa-money-bill-alt"></i> {{ doctor.price_range }}</li>
+                     </ul>
+                  </div>
+                  <div class="doctor-action">
+                     <a href="javascript:void(0)" class="btn btn-white fav-btn">
+                        <i class="far fa-bookmark"></i>
+                     </a>
+                     <a href="chat.html" class="btn btn-white msg-btn">
+                        <i class="far fa-comment-alt"></i>
+                     </a>
+                     <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
+                        <i class="fas fa-phone"></i>
+                     </a>
+                     <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
+                        <i class="fas fa-video"></i>
+                     </a>
+                  </div>
+                  <div class="clinic-booking">
+                     <a class="apt-btn" href="{% url 'book_appointment' doctor.id  %}">Book Appointment</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /Doctor Widget -->
+
+      <!-- Doctor Details Tab -->
+      <div class="card">
+         <div class="card-body pt-0">
+            <!-- Tab Menu -->
+            <nav class="user-tabs mb-4">
+               <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+                  <li class="nav-item">
+                     <a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
+                  </li>
+               </ul>
+            </nav>
+            <!-- /Tab Menu -->
+
+            <!-- Tab Content -->
+            <div class="tab-content pt-0">
+               <!-- Overview Content -->
+               <div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
+                  <div class="row doctor-details">
+                     <div class="col-md-12 col-lg-9">
+                        <!-- About Details -->
+                        <div class="widget about-widget">
+                           <h4 class="widget-title">About Me</h4>
+                           <p>
+                              My name is Dr. John, and I am a highly trained and experienced oral and maxillofacial surgeon. Throughout my education and training, I have gained extensive knowledge and expertise in the surgical treatment of diseases, injuries, and defects that affect the face, mouth,
+                              and jaws. I have a deep understanding of the anatomy and function of the head and neck, as well as the complex relationships between the oral cavity and the rest of the body. In my practice, I provide a wide range of surgical services, including wisdom tooth extraction,
+                              dental implant placement, orthognathic surgery, and facial reconstruction after trauma or cancer. I use the latest technology and techniques to ensure that my patients receive the highest quality of care possible.
+                           </p>
+                        </div>
+                        <!-- /About Details -->
+                        <!-- Services List -->
+                        <div class="service-list">
+                           <h4>Services</h4>
+                           <ul class="clearfix">
+                              <li>Tooth cleaning</li>
+                              <li>Root Canal Therapy</li>
+                              <li>Implants</li>
+                              <li>Composite Bonding</li>
+                              <li>Fissure Sealants</li>
+                              <li>Surgical Extractions</li>
+                           </ul>
+                        </div>
+                        <!-- /Services List -->
+                        <div class="row">
+                           <div class="col-6">
+                              <!-- Experience Details -->
+                              <div class="widget experience-widget">
+                                 <h4 class="widget-title">Work & Experience</h4>
+                                 <div class="experience-box">
+                                    <ul class="experience-list">
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <a href="#/" class="name">Glowing Smiles Family Dental Clinic</a>
+                                                <span class="time">2010 - Present (5 years)</span>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <a href="#/" class="name">Comfort Care Dental Clinic</a>
+                                                <span class="time">2007 - 2010 (3 years)</span>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <a href="#/" class="name">Comfort Care Dental Clinic</a>
+                                                <span class="time">2007 - 2010 (3 years)</span>
+                                             </div>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <a href="#/" class="name">Dream Smile Dental Practice</a>
+                                                <span class="time">2005 - 2007 (2 years)</span>
+                                             </div>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <!-- /Experience Details -->
+                           </div>
+                           <div class="col-6">
+                              <!-- Awards Details -->
+                              <div class="widget awards-widget">
+                                 <h4 class="widget-title">Awards</h4>
+                                 <div class="experience-box">
+                                    <ul class="experience-list">
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <p class="exp-year">July 2019</p>
+                                                <h4 class="exp-title">Humanitarian Award</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                                             </div>
+                                          </div>
+                                       </li>
+
+                                       <li>
+                                          <div class="experience-user">
+                                             <div class="before-circle"></div>
+                                          </div>
+                                          <div class="experience-content">
+                                             <div class="timeline-content">
+                                                <p class="exp-year">May 2008</p>
+                                                <h4 class="exp-title">The Dental Professional of The Year Award</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                                             </div>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <!-- /Awards Details -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- /Overview Content -->
+            </div>
+         </div>
+      </div>
+      <!-- /Doctor Details Tab -->
+   </div>
+</div>
+<!-- /Page Content -->
+
+{% endblock %}
